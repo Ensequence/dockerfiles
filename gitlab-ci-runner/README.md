@@ -49,7 +49,7 @@ Once you have a container and setup the SSH key, you need to browse to your Gitl
 
 ![Click the "Assign to all" button][addtoall]
 
-[addtoall]: https://github.com/Ensequence/dockerfiles/gitlab-ci-runner/raw/master/addtoall.png "Assign to all"
+[addtoall]: https://raw.github.com/Ensequence/dockerfiles/master/gitlab-ci-runner/addtoall.png "Assign to all"
 
 
 ### 2. Ensure SSH Connectivity
