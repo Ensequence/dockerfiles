@@ -68,7 +68,7 @@ The "50a2e96272af" is the ID of the container that was just installed.  To use i
 $ docker commit 50a2e96272af gitlab-ci-runner
 ```
 
-After committing the container to the new repository `gitlab-ci-runner`, you now must add your Gitlab key fingerprint to the list of known hosts.
+After committing the container to the new `gitlab-ci-runner` image, you now must add your Gitlab key fingerprint to the list of known hosts.  To do so, start the new image with `docker run -i -t gitlab-ci-runner /bin/bash`
 
 ```bash
 root@94041103155a:/# ssh git@192.168.1.1
