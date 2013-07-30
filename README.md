@@ -34,7 +34,7 @@ From there, you can install images (`docker pull`) or run images / containers (`
 
 ### gitlab-ci-runner
 
-Gitlab CI is an awesome project for continuous integration.  We use it to automatically buid software as it's modified through the lifetime of the project.  One benefit of Gitlab CI is it doesn't run the builds on the CI server itself.  It allows you to register *runners* on other machines.  All of our developer machines then can register as runners to run builds. 
+[Gitlab CI](https://github.com/gitlabhq/gitlab-ci) is an awesome project for continuous integration.  We use it to automatically buid software as it's modified through the lifetime of the project.  One benefit of Gitlab CI is it doesn't run the builds on the CI server itself.  It allows you to register *runners* on other machines.  All of our developer machines then can register as runners to run builds. 
 
 Documentation to [download and install this image can be found here](gitlab-ci-runner/README.md).
 
