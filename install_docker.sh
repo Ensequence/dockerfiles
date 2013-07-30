@@ -18,7 +18,7 @@ if [ $? -ne 0 ]; then
     mkdir -p /tmp
     
     # download the image
-    wget http://files.vagrantup.com/packages/7ec0ee1d00a916f80b109a298bab08e391945243/Vagrant-1.2.7.dmg /tmp/Vagrant-1.2.7.dmg
+    wget -O /tmp/Vagrant-1.2.7.dmg http://files.vagrantup.com/packages/7ec0ee1d00a916f80b109a298bab08e391945243/Vagrant-1.2.7.dmg
     
     # mount the image, store the output
     drives=$(hdiutil attach /tmp/Vagrant-1.2.7.dmg)
