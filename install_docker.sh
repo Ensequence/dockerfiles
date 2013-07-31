@@ -33,10 +33,36 @@ if [ $? -ne 0 ]; then
 fi
 
 
+# do we need the latest go?
+correctgo=$(go version | cut -d ' ' -f 3 | grep go1.1.1 | wc -l)
+if [ "$correctgo" -ne "1" ]; then
+
+    # remove old go (just in case)
+    sudo rm -r /usr/local/go
+
+    # download latest go 
+    wget -O /tmp/go1.1.1.darwin-386.pkg https://go.googlecode.com/files/go1.1.1.darwin-386.pkg
+    sudo /usr/sbin/installer -pkg /tmp/go1.1.1.darwin-386.pkg -target /
+fi
+
+
 # clone docker to ~/src
-mkdir -p ~/src
-git clone https://github.com/dotcloud/docker.git ~/src/docker
+if [ -d ~/src/docker ]; then
+    mkdir -p ~/src
+    git clone https://github.com/dotcloud/docker.git ~/src/docker    
+fi
+
+# checkout a specific version
+cd ~/src/docker && git checkout v0.5.0
+
+# build docker
+docker version > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+    cd ~/src/docker
+    make clean all VERBOSE=1
+    sudo mv ./bin/docker /usr/bin/docker
+fi
+
 
 # bring up the image, kickoff 
-cd ~/src/docker
 vagrant up
