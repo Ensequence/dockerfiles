@@ -47,7 +47,7 @@ fi
 
 
 # clone docker to ~/src
-if [ -d ~/src/docker ]; then
+if [ ! -d ~/src/docker ]; then
     mkdir -p ~/src
     git clone https://github.com/dotcloud/docker.git ~/src/docker    
 fi
