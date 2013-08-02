@@ -52,9 +52,6 @@ if [ ! -d ~/src/docker ]; then
     git clone https://github.com/dotcloud/docker.git ~/src/docker    
 fi
 
-# checkout a specific version
-cd ~/src/docker && git checkout v0.5.0
-
 # build docker
 docker version > /dev/null 2>&1
 if [ $? -ne 0 ]; then
@@ -66,3 +63,4 @@ fi
 
 # bring up the image, kickoff 
 vagrant up
+ 
