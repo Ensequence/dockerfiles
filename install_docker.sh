@@ -56,11 +56,25 @@ fi
 docker version > /dev/null 2>&1
 if [ $? -ne 0 ]; then
     cd ~/src/docker
+    # we need to build for the Mac against v0.5.0
+    git checkout v0.5.0
     make clean all VERBOSE=1
     sudo mv ./bin/docker /usr/bin/docker
+    # once we're done, move back to master
+    git checkout master
 fi
 
 
 # bring up the image, kickoff 
-vagrant up
- 
+cd ~/src/docker
+GREEN="\033[0;32m"
+startvagrant=$(vagrant status | head -n 3 | tail -n 1 | grep running | wc -l)
+if [ "$startvagrant" -ne "1" ]; then
+    vagrant up
+    echo -en "$GREEN If you need to \`vagrant reload\`, please \`cd ~/src\` first."
+else 
+    echo -en "$GREEN Try using \`docker version\` to use see if you can use Docker from the Mac \n"
+fi
+
+
+# 
