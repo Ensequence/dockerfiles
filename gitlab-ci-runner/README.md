@@ -1,6 +1,3 @@
-# deprecated
-
-When we made this project, the Gitlab CI project did not have it's own Dockerfile. They now do: https://github.com/gitlabhq/gitlab-ci-runner/blob/master/Dockerfile
 
 # gitlab-ci-runner
 
