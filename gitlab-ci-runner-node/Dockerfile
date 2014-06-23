@@ -11,19 +11,19 @@ MAINTAINER  John Weis "weis.john@gmail.com"
 # This script will start a runner in a docker container.
 #
 # First build the container and give a name to the resulting image:
-# docker build -t codingforce/gitlab-ci-runner-nodejs github.com/bkw/gitlab-ci-runner-nodejs
+# docker build -t weisjohn/gitlab-ci-runner-node github.com/bkw/gitlab-ci-runner-nodejs
 #
 # Then set the environment variables and run the gitlab-ci-runner in the container:
-# docker run -e CI_SERVER_URL=https://ci.example.com -e REGISTRATION_TOKEN=replaceme -e HOME=/root -e GITLAB_SERVER_FQDN=gitlab.example.com codingforce/gitlab-ci-runner-nodejs
+# docker run -e CI_SERVER_URL=https://ci.example.com -e REGISTRATION_TOKEN=replaceme -e HOME=/root -e GITLAB_SERVER_FQDN=gitlab.example.com weisjohn/gitlab-ci-runner-node
 #
 # After you start the runner you can send it to the background with ctrl-z
 # The new runner should show up in the GitLab CI interface on /runners
 #
 # You can start an interactive session to test new commands with:
-# docker run -e CI_SERVER_URL=https://ci.example.com -e REGISTRATION_TOKEN=replaceme -e HOME=/root -i -t codingforce/gitlab-ci-runner-nodejs:latest /bin/bash
+# docker run -e CI_SERVER_URL=https://ci.example.com -e REGISTRATION_TOKEN=replaceme -e HOME=/root -i -t weisjohn/gitlab-ci-runner-node:latest /bin/bash
 #
 # If you ever want to freshly rebuild the runner please use:
-# docker build -no-cache -t codingforce/gitlab-ci-runner-nodejs github.com/bkw/gitlab-ci-runner-nodejs
+# docker build -no-cache -t weisjohn/gitlab-ci-runner-node github.com/bkw/gitlab-ci-runner-nodejs
 
 # Update your packages and install the ones that are needed to compile Ruby
 RUN apt-get update -y
