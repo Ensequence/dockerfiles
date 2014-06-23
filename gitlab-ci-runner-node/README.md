@@ -26,7 +26,7 @@ $ exit
 
 In the bash prompt, you'll see the container ID that you need to commit, something like: `root@0144cab49492:/gitlab-ci-runner#`, the `0144cab49492` is the number you need (yours will be different).
 
-    $ docker commit 0144cab49492 gitlab-ci-runner-node
+    $ docker commit -run="{\"Cmd\": [\"./bin/runner\"] }" 0144cab49492 gitlab-ci-runner-node
 
 You can then stop the original container and run the new named container. This new container will remember the previous configuration.
 
