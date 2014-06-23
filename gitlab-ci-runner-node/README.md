@@ -9,7 +9,7 @@
 
 First, you must register your runner via.
 
-    % docker run \
+    $ docker run \
         -e CI_SERVER_URL=https://ci.example.com \
         -e REGISTRATION_TOKEN=replaceme \
         -e HOME=/root \
