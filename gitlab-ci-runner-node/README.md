@@ -20,11 +20,16 @@ First, you must register your runner via.
 You'll be connected to an interactive terminal session, where you can enter in the following command, which will register the runner and cache the IP for your instance of Gitlab.
 
     $ ssh-keyscan -H $GITLAB_SERVER_FQDN >> /root/.ssh/known_hosts && bundle exec ./bin/setup_and_run
-    $ exit
 
-In the bash prompt, you'll see the container ID that you need to commit, something like: `root@0144cab49492:/gitlab-ci-runner#`, the `0144cab49492` is the number you need (yours will be different).
+Once you see the runner say:
 
-    $ docker commit -run="{\"Cmd\": [\"./bin/runner\"] }" 0144cab49492 gitlab-ci-runner-node
+    Setup finished. Runner starting.
+    * Gitlab CI Runner started
+    * Waiting for builds
+
+you can send a `SIGINT` and `exit` the container. In the bash prompt, you'll see the container ID that you need to commit, something like: `root@0144cab49492:/gitlab-ci-runner#`, the `0144cab49492` is the number you need (yours will be different).
+
+    $ docker commit --run="{\"Cmd\": [\"./bin/runner\"]}" 0144cab49492 gitlab-ci-runner-node
 
 You can then stop the original container and run the new named container. This new container will remember the previous configuration.
 
