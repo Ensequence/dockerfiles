@@ -54,4 +54,4 @@ RUN npm install -g phantomjs bower mocha uglifyjs
 
 # When the image is started add the remote server key, install the runner and run it
 WORKDIR /gitlab-ci-runner
-CMD ssh-keyscan -H $GITLAB_SERVER_FQDN >> /root/.ssh/known_hosts & bundle exec ./bin/setup_and_run
+CMD bundle exec ./bin/runner
